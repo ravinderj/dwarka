@@ -1,0 +1,13 @@
+# docker build . -t dwarka:1.0.0
+
+FROM golang:1.19
+
+WORKDIR /app
+
+ADD ./ /app
+
+RUN make compile
+
+EXPOSE 1410
+
+ENTRYPOINT [ "/app/out/dwarka" ]
